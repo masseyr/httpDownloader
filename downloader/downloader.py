@@ -6,6 +6,10 @@ import sys
 import os
 
 
+__author__ = 'github.com/masseyr'
+__all__ = "Downloader"
+
+
 class Downloader:
     """
     Downloader class to retrieve file lists from HTTPS urls with user/passwd auth
