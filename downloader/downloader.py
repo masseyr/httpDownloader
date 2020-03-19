@@ -87,4 +87,4 @@ class Downloader:
                         file_handl.write(chunk)
 
             if verbose:
-                sys.stdout.write('File written: {}'.format(self.filenames[url_idx]))
+                sys.stdout.write('File written: {}\n'.format(self.filenames[url_idx]))
