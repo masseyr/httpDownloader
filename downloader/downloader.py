@@ -6,7 +6,7 @@ import sys
 import os
 
 
-__author__ = 'github.com/masseyr'
+__author__ = 'richard massey'
 __all__ = "Downloader"
 
 
