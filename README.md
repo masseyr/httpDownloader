@@ -1,2 +1,1 @@
-# http_downloader
- SImple http downloader using Python requests library
+Simple http downloader using Python requests library
