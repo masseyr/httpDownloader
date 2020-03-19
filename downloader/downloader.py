@@ -66,15 +66,25 @@ class Downloader:
 
     def download(self,
                  random_requests=True,
+                 overwrite=False,
                  verbose=True):
         """
         Method to download files by opening auth urls
-        :param random_requests: If the requests should be pseudo-randomized
-        :param verbose: if the downloaded file names should be displayed
+        :param random_requests: If the requests should be pseudo-randomized (default: True)
+        :param overwrite: Should the file be removed and re-written if it exists? (default: False)
+        :param verbose: if the downloaded file names should be displayed (default: True)
         :return: None
         """
 
         for url_idx, url in enumerate(self.urls):
+
+            if os.path.isfile(self.filenames[url_idx]):
+                if overwrite:
+                    os.remove(self.filenames[url_idx])
+                else:
+                    if verbose:
+                        sys.stdout.write('File exists: {}\n'.format(self.filenames[url_idx]))
+                    continue
 
             if random_requests:
                 time.sleep(random.random()*10.0)
@@ -88,3 +98,6 @@ class Downloader:
 
             if verbose:
                 sys.stdout.write('File written: {}\n'.format(self.filenames[url_idx]))
+
+            if url_idx % 10 == 0:
+                sys.stdout.flush()
