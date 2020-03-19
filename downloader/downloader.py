@@ -54,7 +54,7 @@ class Downloader:
         """
         Method to open a connection to the file over http(s)
         :param url: URL to open
-        :return: None
+        :return: requests file stream
         """
         return requests.get(url,
                             auth=(self.username, self.password),
